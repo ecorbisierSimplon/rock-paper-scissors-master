@@ -1,0 +1,59 @@
+div.app {
+    flex: 1;
+}
+
+section {
+    &.home {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .choice {
+            .triangle {
+                position: relative;
+                width: fit-content;
+                margin: 20px auto;
+                & > img {
+                    width: 280px;
+                    height: 210px;
+                }
+            }
+
+            .image-at-point {
+                position: absolute;
+                display: flex;
+                /* align-content: center; */
+                justify-content: center;
+                align-items: center;
+                border: 11px solid hsl($color-p, 91%, 65%);
+                box-shadow: inset 2px 4px 6px #000;
+                background: hsl(208deg 100% 97.06%);
+                border-radius: 100%;
+                padding: 10px;
+                width: 50px;
+                height: 50px;
+                img {
+                    margin: 20px;
+                }
+                &.point-1 {
+                    top: -40px;
+                    left: -25px;
+                    border-color: hsl(230, 91%, 65%);
+                }
+
+                &.point-2 {
+                    top: -40px;
+                    right: -25px;
+                    border-color: rgb(224, 64, 91);
+                }
+
+                &.point-3 {
+                    bottom: -30px;
+                    left: calc(50% - 50px);
+                    border-color: rgb(237, 167, 37);
+                }
+            }
+        }
+        .rules {
+        }
+    }
+}

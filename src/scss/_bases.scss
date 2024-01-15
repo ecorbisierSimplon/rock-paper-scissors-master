@@ -1,5 +1,6 @@
+// Styles
 html {
-  font-size: 18px;
+  font-size: $base-font-size;
 }
 
 @each $level in 1 through 6 {
@@ -14,104 +15,76 @@ html {
 }
 
 body {
-  color: $primary-color;
-  background-color: $color_body;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: $base-background;
+  background-image: radial-gradient(circle, hsl($color_p, 40%, 25%) 0%, $base-background 50%);
+  background-repeat: no-repeat;
   min-height: 100vh;
-}
-main {
-  position: relative;
-  margin: 10px auto;
-  flex: 1;
-  max-width: 95vw;
-  width: 100vw;
-  height: 100%;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: inherit;
-    background-image: url("../img/landscape.jpg");
-    background-repeat: no-repeat;
-    background-size: auto 100vh;
-    background-position: center;
-    background-attachment: fixed;
-    opacity: 0.5;
-    z-index: -1;
-    @include paysage {
-      background-size: 100vw 100vh;
-    }
-  }
 }
 
 header {
-  position: relative;
-  z-index: 999;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  img {
-    width: 40vw;
-    padding: 5px;
-    @include gd-screen-min {
-      width: 20vw;
-    }
-  }
-  .nav {
-    width: 48vw;
+  margin: 20px;
+
+  .header {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 10px;
-    ul {
-      width: 115px;
-    }
-    li {
-      margin: 0 5px 5px 5px;
-      width: 100%;
-    }
-    a {
-      display: block;
-      color: hsl(0, 0%, 100%);
-      padding: 5px;
-      border-radius: 5px;
-      .icon {
-        &::before {
-          margin-right: 5px;
-          color: hsl(14deg 100% 70.54%);
-        }
-      }
-      &:hover {
-        background-color: hsl(111deg 89.27% 39.6%);
-      }
-    }
-    &__options {
-      &.actived {
-        a {
-          box-shadow: inset 2px 1px 3px hsl(0, 0%, 27%);
-          background-color: hsl(111deg 89.27% 39.6%);
-        }
-      }
+    max-width: 800px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border: 5.5px solid #73778c;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 0 auto;
+    .logo {
+      display: flex;
+      align-items: center;
+      margin: auto 30px;
       @include gd-screen-min {
-        display: none;
+        margin: auto 80px;
+      }
+      img {
+        width: 25vw;
+        min-width: 100px;
+        max-width: 200px;
+      }
+    }
+    .score {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 15px;
+      background-color: #fff;
+      color: hsl(240, 9%, 35%);
+      border-radius: 15px;
+      width: 63px;
+      height: 63px;
+      @include gd-screen-min {
+        width: 100px;
+        height: 100px;
+      }
+      span:first-child {
+        margin-bottom: 10px;
+        font-size: 0.7em;
+        @include gd-screen-min {
+          font-size: 0.8em;
+        }
+      }
+
+      span:last-child {
+        margin-bottom: 10px;
+        font-size: 1.7em;
+        @include gd-screen-min {
+          font-size: 2.8em;
+        }
       }
     }
   }
 }
-header,
-footer {
-  background-color: $primary-background-color;
-}
-a {
-  text-decoration: none;
-}
-ul,
-li {
-  list-style: none;
+
+main {
+  display: inline;
 }

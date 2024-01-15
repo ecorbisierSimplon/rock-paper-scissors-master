@@ -1,16 +1,21 @@
 <script>
 	import '../css/style.min.css';
-	import Header from './Header.svelte';
+	import Header from './component/Header.svelte';
 </script>
 
+<Header />
 <div class="app">
-	<Header />
-
 	<main>
 		<slot />
 	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
 </div>
+<footer>
+	<p>
+		visit <a
+			href="https://o.fortboyard.tv/defis/pierre_feuille_ciseau_puits.php#description"
+			target="_blank"
+		>
+			play instruction</a
+		>
+	</p>
+</footer>

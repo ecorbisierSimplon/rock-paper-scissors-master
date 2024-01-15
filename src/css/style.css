@@ -329,8 +329,6 @@ template {
 /* relief */
 /* ombre */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
   color: hsla(0, 0%, 100%, 0.87);
@@ -378,107 +376,134 @@ h6 {
 }
 
 body {
-  color: hsla(0, 0%, 100%, 0.87);
-  background-color: hsl(120, 24%, 15%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: hsl(231, 47%, 17%);
+  background-image: radial-gradient(circle, hsl(231, 40%, 25%) 0%, hsl(231, 47%, 17%) 50%);
+  background-repeat: no-repeat;
   min-height: 100vh;
 }
 
-main {
-  position: relative;
-  margin: 10px auto;
-  flex: 1;
-  max-width: 95vw;
-  width: 100vw;
-  height: 100%;
-}
-main::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: inherit;
-  background-image: url("../img/landscape.jpg");
-  background-repeat: no-repeat;
-  background-size: auto 100vh;
-  background-position: center;
-  background-attachment: fixed;
-  opacity: 0.5;
-  z-index: -1;
-}
-@media (orientation: landscape) {
-  main::before {
-    background-size: 100vw 100vh;
-  }
-}
-
 header {
-  position: relative;
-  z-index: 999;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  margin: 20px;
 }
-header img {
-  width: 40vw;
-  padding: 5px;
+header .header {
+  display: flex;
+  max-width: 800px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  border: 5.5px solid #73778c;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 0 auto;
+}
+header .header .logo {
+  display: flex;
+  align-items: center;
+  margin: auto 30px;
 }
 @media screen and (min-width: 1050px) {
-  header img {
-    width: 20vw;
+  header .header .logo {
+    margin: auto 80px;
   }
 }
-header .nav {
-  width: 48vw;
+header .header .logo img {
+  width: 25vw;
+  min-width: 100px;
+  max-width: 200px;
+}
+header .header .score {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-right: 10px;
-}
-header .nav ul {
-  width: 115px;
-}
-header .nav li {
-  margin: 0 5px 5px 5px;
-  width: 100%;
-}
-header .nav a {
-  display: block;
-  color: hsl(0, 0%, 100%);
-  padding: 5px;
-  border-radius: 5px;
-}
-header .nav a .icon::before {
-  margin-right: 5px;
-  color: hsl(14, 100%, 70.54%);
-}
-header .nav a:hover {
-  background-color: hsl(111, 89.27%, 39.6%);
-}
-header .nav__options.actived a {
-  box-shadow: inset 2px 1px 3px hsl(0, 0%, 27%);
-  background-color: hsl(111, 89.27%, 39.6%);
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  background-color: #fff;
+  color: hsl(240, 9%, 35%);
+  border-radius: 15px;
+  width: 63px;
+  height: 63px;
 }
 @media screen and (min-width: 1050px) {
-  header .nav__options {
-    display: none;
+  header .header .score {
+    width: 100px;
+    height: 100px;
+  }
+}
+header .header .score span:first-child {
+  margin-bottom: 10px;
+  font-size: 0.7em;
+}
+@media screen and (min-width: 1050px) {
+  header .header .score span:first-child {
+    font-size: 0.8em;
+  }
+}
+header .header .score span:last-child {
+  margin-bottom: 10px;
+  font-size: 1.7em;
+}
+@media screen and (min-width: 1050px) {
+  header .header .score span:last-child {
+    font-size: 2.8em;
   }
 }
 
-header,
-footer {
-  background-color: hsl(111, 100%, 30%);
+main {
+  display: inline;
 }
 
-a {
-  text-decoration: none;
+div.app {
+  flex: 1;
 }
 
-ul,
-li {
-  list-style: none;
+section.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+section.home .choice .triangle {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 20px auto;
+}
+section.home .choice .triangle > img {
+  width: 280px;
+  height: 210px;
+}
+section.home .choice .image-at-point {
+  position: absolute;
+  display: flex;
+  /* align-content: center; */
+  justify-content: center;
+  align-items: center;
+  border: 11px solid hsl(231, 91%, 65%);
+  box-shadow: inset 2px 4px 6px #000;
+  background: hsl(208, 100%, 97.06%);
+  border-radius: 100%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+}
+section.home .choice .image-at-point img {
+  margin: 20px;
+}
+section.home .choice .image-at-point.point-1 {
+  top: -40px;
+  left: -25px;
+  border-color: hsl(230, 91%, 65%);
+}
+section.home .choice .image-at-point.point-2 {
+  top: -40px;
+  right: -25px;
+  border-color: rgb(224, 64, 91);
+}
+section.home .choice .image-at-point.point-3 {
+  bottom: -30px;
+  left: calc(50% - 50px);
+  border-color: rgb(237, 167, 37);
 }/*# sourceMappingURL=style.css.map */
