@@ -5,12 +5,17 @@
 </script>
 
 <header>
-	<div class="logo">
-		<a href="javascript(void:0)">
-			<img src={logo} alt="SciPaRo" />
-		</a>
+	<div class="header">
+		<div class="logo">
+			<a href="javascript(void:0)">
+				<img src={logo} alt="SciPaRo" />
+			</a>
+		</div>
+		<div class="score">
+			<span>SCORE</span>
+			<span>99</span>
+		</div>
 	</div>
-
 	<nav>
 		<ul>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
