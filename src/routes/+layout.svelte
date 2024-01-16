@@ -1,6 +1,17 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { getCookie, setCookie } from 'typescript-cookie';
 	import '../css/style.min.css';
-	import Header from './component/Header.svelte';
+	import Header from '$lib/component/Header.svelte';
+	export let hostname: string = '';
+
+	onMount(() => {
+		hostname = window.location.origin;
+		const secureCookie: boolean = false;
+		if (!getCookie('withOther')) {
+			setCookie('withOther', 0, { expires: 365, secure: secureCookie });
+		}
+	});
 </script>
 
 <Header />
