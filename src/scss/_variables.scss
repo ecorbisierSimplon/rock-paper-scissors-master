@@ -9,6 +9,18 @@ $base-background: hsl($color_p, 47%, 17%);
 $border-color: hsl($color_p, 10%, 50%);
 $max-container-width: 800px;
 
+// min screen
+$size_point_screen: 80px;
+$padding_screen: 33px;
+$position_screen: calc(calc($size_point_screen / 2) * -1);
+// $position_screen: calc(calc(calc($size_point_screen + calc($padding_screen * 2)) / 2) * -1);
+
+// mobile
+$size_point: 50px;
+$padding: 28px;
+$position: calc(calc($size_point / 2) * -1);
+// $position: calc(calc(calc($size_point + calc($padding * 2)) / 2) * -1);
+
 $breakpoints: (
   pt-mobil-max: 399px,
   mobil-max: 499px,

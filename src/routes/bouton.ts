@@ -1,39 +1,38 @@
 import pierre from '$lib/images/icon-rock.svg';
 import feuille from '$lib/images/icon-paper.svg';
-import sciseaux from '$lib/images/icon-scissors.svg';
-import type { Element } from './load';
+import ciseaux from '$lib/images/icon-scissors.svg';
+import type { Elements } from './load';
 import { Load } from './load';
 
+export interface objectButton {
+    name: string;
+    position: number;
+    path: string;
+}
+
 export class Boutons {
-    private elements: Element[] = Load.load();
+    private static elements: Elements[] = Load.load();
 
-    constructor(public readonly name: Element) { }
+    constructor(public readonly name: Elements) { }
 
-    public getDisplay(): string {
-        const name: Element = this.name as Element;
-        const position: number = this.elements.indexOf(name) + 1;
-        const imagePath: string = this.getImagePath(name);
+    public static getDisplay(name: Elements): objectButton {
+        // const name: Elements = this.elements[0]; // Modifier en fonction de votre logique d'accès aux éléments
+        const position: number = Boutons.elements.indexOf(name) + 1;
+        const imagePath: string = Boutons.getImagePath(name);
 
-        return `
-            <div id="bouton_${name}"class="image-at-point point-${position}">
-                <div>
-                    <img src="${imagePath}" alt="SciPaRo ${name}" />
-                </div>
-            </div>
-        `;
+        return { name: name, position: position, path: imagePath };
     }
 
-    private getImagePath(element: Element): string {
+    private static getImagePath(element: Elements): string {
         switch (element) {
             case 'pierre':
-                return pierre;
+                return pierre; // Assurez-vous que 'pierre' est une variable contenant le chemin de l'image
             case 'feuille':
-                return feuille;
-            case 'sciseaux':
-                return sciseaux;
+                return feuille; // Assurez-vous que 'feuille' est une variable contenant le chemin de l'image
+            case 'ciseaux':
+                return ciseaux; // Assurez-vous que 'ciseaux' est une variable contenant le chemin de l'image
             default:
                 return '';
         }
     }
-
 }

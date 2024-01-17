@@ -492,86 +492,121 @@ section.home {
   flex-direction: column;
   justify-content: space-between;
 }
-section.home .choice {
-  margin: 50px 0;
-}
-section.home .choice .triangle {
+section.home .image-at-point {
   position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 20px auto;
-}
-section.home .choice .triangle > img {
-  width: 280px;
-  height: 210px;
-}
-@media screen and (min-width: 1050px) {
-  section.home .choice .triangle > img {
-    width: 393px;
-    height: 318px;
-  }
-}
-section.home .choice .image-at-point {
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 2px 4px 6px #000;
-  padding: 1.8rem;
+  box-shadow: inset 4px 6px 6px hsla(0, 0%, 0%, 0.5), inset -4px -6px 6px hsla(0, 0%, 0%, 0.5), inset 4px -6px 6px hsla(0, 0%, 0%, 0.5), inset -4px 6px 6px hsla(0, 0%, 0%, 0.5);
+  padding: 28px;
   border-radius: 100%;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
+  transition: position 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
 }
 @media screen and (min-width: 1050px) {
-  section.home .choice .image-at-point {
+  section.home .image-at-point {
     width: 80px;
     height: 80px;
+    padding: 33px;
   }
 }
-section.home .choice .image-at-point div {
+section.home .image-at-point div {
   background: hsl(208, 100%, 97%);
   border-radius: 100%;
   box-shadow: inset 2px 4px 6px hsl(0, 0%, 0%);
 }
-section.home .choice .image-at-point div:hover {
-  background: radial-gradient(hsl(0, 0%, 94%) 20%, hsl(66, 100%, 50%));
-  border-radius: 100%;
-  box-shadow: inset 2px 4px 6px hsl(47, 24%, 34%), 2px 4px 6px hsl(0, 1%, 45%);
-}
-section.home .choice .image-at-point div:hover img {
-  fill: green;
-}
-section.home .choice .image-at-point div img {
+section.home .image-at-point div img {
   margin: 15px;
   width: 50px;
   height: 50px;
 }
 @media screen and (min-width: 1050px) {
-  section.home .choice .image-at-point div img {
+  section.home .image-at-point div img {
     width: 80px;
     height: 80px;
   }
 }
-section.home .choice .image-at-point.point-1 {
-  top: -40px;
-  left: -25px;
+section.home .image-at-point.point-1 {
   background: linear-gradient(180deg, hsl(230, 91%, 65%), hsl(230, 76%, 26%));
 }
-section.home .choice .image-at-point.point-2 {
-  top: -40px;
-  right: -25px;
+section.home .image-at-point.point-2 {
   background: linear-gradient(180deg, hsl(350, 91%, 65%), hsl(350, 76%, 26%));
 }
-section.home .choice .image-at-point.point-3 {
-  bottom: -30px;
-  left: calc(50% - 60px);
+section.home .image-at-point.point-3 {
   background: linear-gradient(180deg, hsl(40, 91%, 65%), hsl(40, 76%, 26%));
 }
+section.home .choice {
+  margin: 50px 0;
+}
+section.home .choice #play.triangle {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 20px auto;
+}
+section.home .choice #play.triangle > img {
+  width: 280px;
+  height: 210px;
+}
 @media screen and (min-width: 1050px) {
-  section.home .choice .image-at-point.point-3 {
-    left: calc(50% - 75px);
+  section.home .choice #play.triangle > img {
+    width: 393px;
+    height: 318px;
   }
+}
+section.home .choice #play .image-at-point {
+  position: absolute;
+  cursor: pointer;
+}
+section.home .choice #play .image-at-point div:hover {
+  background: radial-gradient(hsl(0, 0%, 94%) 20%, hsl(66, 100%, 50%));
+  border-radius: 100%;
+  box-shadow: inset 2px 4px 6px hsl(47, 24%, 34%), 2px 4px 6px hsl(0, 1%, 45%);
+}
+section.home .choice #play .image-at-point div:hover img {
+  filter: brightness(0.6);
+}
+section.home .choice #play .image-at-point.point-1 {
+  top: -25px;
+  left: -25px;
+}
+@media screen and (min-width: 1050px) {
+  section.home .choice #play .image-at-point.point-1 {
+    top: -40px;
+    left: -40px;
+  }
+}
+section.home .choice #play .image-at-point.point-1.position {
+  position: relative;
+}
+section.home .choice #play .image-at-point.point-2 {
+  top: -25px;
+  right: -25px;
+}
+@media screen and (min-width: 1050px) {
+  section.home .choice #play .image-at-point.point-2 {
+    top: -40px;
+    right: -40px;
+  }
+}
+section.home .choice #play .image-at-point.point-3 {
+  bottom: -25px;
+  left: calc(50% - 53px);
+}
+@media screen and (min-width: 1050px) {
+  section.home .choice #play .image-at-point.point-3 {
+    bottom: -40px;
+    left: calc(50% - 73px);
+  }
+}
+section.home .choice #result .position {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
 }
 section.home .rules {
   margin: 50px 0;
