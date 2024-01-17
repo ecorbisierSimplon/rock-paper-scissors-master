@@ -2,8 +2,8 @@ import { getCookie } from 'typescript-cookie';
 
 
 
-export type Element = 'pierre' | 'sciseaux' | 'feuille' | 'lézard' | 'spock';
-export const elements: Element[] = ['pierre', 'sciseaux', 'feuille'];
+export type Elements = 'pierre' | 'ciseaux' | 'feuille' | 'lézard' | 'spock';
+export const elements: Elements[] = ['pierre', 'ciseaux', 'feuille'];
 
 export class Load {
     // private player1: Element = "ciseaux";
@@ -17,7 +17,7 @@ export class Load {
         }
     }
 
-    public static load(): Element[] {
+    public static load(): Elements[] {
         return elements;
     }
 }

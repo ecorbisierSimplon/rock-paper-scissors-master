@@ -1,7 +1,11 @@
 import { elements } from './load';
-import type { Element } from './load';
+import type { Elements } from './load';
 
-
+export interface ResultPlayer {
+    player1: Elements;
+    player2: Elements;
+    result: number;
+}
 
 export class ResultatPlayer {
     // private player1: Element = "ciseaux";
@@ -13,32 +17,32 @@ export class ResultatPlayer {
 
     // Comparer les éléments et afficher le résultat
 
-    public static calcul(result1: Element, result2: Element): string[] {
+    public static calcul(player1: Elements, player2: Elements): ResultPlayer {
         let resultatFinal: string = ""; // Renommer la variable pour éviter la confusion avec la constante resultat
         let element1 = "";
         let element2 = "";
-        const i = elements.indexOf(result1);
+        const i = elements.indexOf(player1);
 
         element2 = elements[(i + 1) % elements.length];
-        console.log(result1 + " ( ==> " + element2 + " ) == " + result2)
+        console.log(player1 + " ( ==> " + element2 + " ) == " + player2)
 
-        let compteur: number = 0;
-        if (result1 === result2) {
-            resultatFinal = `${result1} Egalité ! ${result2}.`;
-            compteur = 0;
-        } else if (result2 === element2 || result2 === element2) {
-            resultatFinal = `${result1} gagne contre ${result2}.`;
-            compteur = 1;
+        let result: number = 0;
+        if (player1 === player2) {
+            resultatFinal = `${player1} Egalité ! ${player2}.`;
+            result = 0;
+        } else if (player2 === element2 || player2 === element2) {
+            resultatFinal = `${player1} gagne contre ${player2}.`;
+            result = 1;
         } else {
-            resultatFinal = `${result1} perd contre ${result2}.`;
-            compteur = -1;
+            resultatFinal = `${player1} perd contre ${player2}.`;
+            result = -1;
         }
         const choice: HTMLDivElement | null = document.querySelector(".choice");
         if (choice) {
             // choice.innerHTML = "";
             // choice.innerHTML = resultatFinal;
         }
-        return [result1, result2, compteur.toString()]; // Ajouter le return pour renvoyer la valeur calculée
+        return { player1, player2, result }; // Ajouter le return pour renvoyer la valeur calculée
     };
 }
 

@@ -7,81 +7,124 @@ section {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        .choice {
-            margin: 50px 0;
-            .triangle {
-                position: relative;
-                width: fit-content;
-                margin: 20px auto;
-                & > img {
-                    width: 280px;
-                    height: 210px;
+        .image-at-point {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow:
+                inset 4px 6px 6px hsl(0deg 0% 0% / 50%),
+                inset -4px -6px 6px hsl(0deg 0% 0% / 50%),
+                inset 4px -6px 6px hsl(0deg 0% 0% / 50%),
+                inset -4px 6px 6px hsl(0deg 0% 0% / 50%);
+
+            padding: $padding;
+            border-radius: 100%;
+            width: $size_point;
+            height: $size_point;
+            transition: position 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+            @include gd-screen-min {
+                width: $size_point_screen;
+                height: $size_point_screen;
+                padding: $padding_screen;
+            }
+            cursor: pointer;
+            div {
+                background: hsl(208, 100%, 97%);
+                border-radius: 100%;
+                box-shadow: inset 2px 4px 6px hsl(0, 0%, 0%);
+                img {
+                    margin: 15px;
+                    width: $size_point;
+                    height: $size_point;
                     @include gd-screen-min {
-                        width: 393px;
-                        height: 318px;
+                        width: $size_point_screen;
+                        height: $size_point_screen;
                     }
                 }
             }
+            &.point-1 {
+                background: linear-gradient(180deg, hsl(230, 91%, 65%), hsl(230, 76%, 26%));
+            }
 
-            .image-at-point {
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                box-shadow: inset 2px 4px 6px #000;
-                padding: 1.8rem;
-                border-radius: 100%;
-                width: 45px;
-                height: 45px;
-                @include gd-screen-min {
-                    width: 80px;
-                    height: 80px;
-                }
-                cursor: pointer;
-                div {
-                    background: hsl(208, 100%, 97%);
-                    border-radius: 100%;
-                    box-shadow: inset 2px 4px 6px hsl(0, 0%, 0%);
-                    &:hover {
-                        background: radial-gradient(hsl(0, 0%, 94%) 20%, hsl(66, 100%, 50%));
-                        border-radius: 100%;
-                        box-shadow:
-                            inset 2px 4px 6px hsl(47, 24%, 34%),
-                            2px 4px 6px hsl(0, 1%, 45%);
-                        img {
-                            fill: green;
-                        }
-                    }
+            &.point-2 {
+                background: linear-gradient(180deg, hsl(350, 91%, 65%), hsl(350, 76%, 26%));
+            }
 
-                    img {
-                        margin: 15px;
-                        width: 50px;
-                        height: 50px;
+            &.point-3 {
+                background: linear-gradient(180deg, hsl(40, 91%, 65%), hsl(40, 76%, 26%));
+            }
+        }
+        .choice {
+            margin: 50px 0;
+            #play {
+                &.triangle {
+                    position: relative;
+                    width: fit-content;
+                    margin: 20px auto;
+                    & > img {
+                        width: 280px;
+                        height: 210px;
                         @include gd-screen-min {
-                            width: 80px;
-                            height: 80px;
+                            width: 393px;
+                            height: 318px;
                         }
                     }
                 }
-                &.point-1 {
-                    top: -40px;
-                    left: -25px;
-                    background: linear-gradient(180deg, hsl(230, 91%, 65%), hsl(230, 76%, 26%));
-                }
 
-                &.point-2 {
-                    top: -40px;
-                    right: -25px;
-                    background: linear-gradient(180deg, hsl(350, 91%, 65%), hsl(350, 76%, 26%));
-                }
-
-                &.point-3 {
-                    bottom: -30px;
-                    left: calc(50% - 60px);
-                    background: linear-gradient(180deg, hsl(40, 91%, 65%), hsl(40, 76%, 26%));
-                    @include gd-screen-min {
-                        left: calc(50% - 75px);
+                .image-at-point {
+                    position: absolute;
+                    cursor: pointer;
+                    div {
+                        &:hover {
+                            background: radial-gradient(hsl(0, 0%, 94%) 20%, hsl(66, 100%, 50%));
+                            border-radius: 100%;
+                            box-shadow:
+                                inset 2px 4px 6px hsl(47, 24%, 34%),
+                                2px 4px 6px hsl(0, 1%, 45%);
+                            img {
+                                filter: brightness(0.6);
+                            }
+                        }
                     }
+                    &.point-1 {
+                        top: $position;
+                        left: $position;
+                        @include gd-screen-min {
+                            top: $position_screen;
+                            left: $position_screen;
+                        }
+                        &.position {
+                            position: relative;
+                        }
+                    }
+
+                    &.point-2 {
+                        top: $position;
+                        right: $position;
+                        @include gd-screen-min {
+                            top: $position_screen;
+                            right: $position_screen;
+                        }
+                    }
+
+                    &.point-3 {
+                        bottom: $position;
+                        left: calc(50% - calc(calc($size_point + calc($padding * 2)) / 2));
+                        @include gd-screen-min {
+                            bottom: $position_screen;
+                            left: calc(50% - calc(calc($size_point_screen + calc($padding_screen * 2)) / 2));
+                        }
+                    }
+                }
+            }
+            #result {
+                .position {
+                    position: relative;
+                    top: auto;
+                    bottom: auto;
+                    left: auto;
+                    right: auto;
                 }
             }
         }
