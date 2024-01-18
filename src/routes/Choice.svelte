@@ -23,9 +23,6 @@
 			handleButtonClick(name);
 		}
 	}
-
-	console.log($boutons);
-	console.log($finish);
 </script>
 
 <!-- {#if !finish} -->

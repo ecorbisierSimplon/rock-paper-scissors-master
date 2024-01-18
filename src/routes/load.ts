@@ -2,6 +2,7 @@ import { getCookie } from 'typescript-cookie';
 
 export type Elements = 'pierre' | 'ciseaux' | 'feuille' | 'lézard' | 'spock';
 export const elements: Elements[] = ['pierre', 'ciseaux', 'feuille'];
+export const genre: string[] = ['la', 'le', 'la', 'le', 'le'];
 
 export class Load {
     // private player1: Element = "ciseaux";

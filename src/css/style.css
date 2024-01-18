@@ -420,12 +420,12 @@ header .header .score {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
-  padding: 15px;
+  padding: 11px;
   background-color: #fff;
-  color: hsl(240, 9%, 35%);
+  color: #515161;
   border-radius: 15px;
-  width: 63px;
-  height: 63px;
+  width: 80px;
+  height: 80px;
 }
 @media screen and (min-width: 1050px) {
   header .header .score {
@@ -446,37 +446,64 @@ header .header .score > div {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
-}
-header .header .score > div div {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  padding: 5px;
 }
-header .header .score > div div:first-child {
-  border-right: 1px solid #000;
-}
-header .header .score > div div label {
+header .header .score > div label {
   font-size: 0.7em;
+  text-align: center;
 }
 @media screen and (min-width: 1050px) {
-  header .header .score > div div label {
+  header .header .score > div label {
     font-size: 0.8em;
   }
 }
-header .header .score > div div input {
-  display: none;
+header .header .score > div > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-height: 64px;
 }
-header .header .score > div div span {
-  font-size: 1.7em;
+header .header .score > div > div:first-child {
+  border-right: 1px solid #000;
 }
-@media screen and (min-width: 1050px) {
-  header .header .score > div div span {
-    font-size: 2.8em;
-  }
+header .header .score .counter {
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 5px 0;
+}
+header .header .score .counter strong {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  display: flex;
+  /* width: 100%; */
+  /* height: 100%; */
+  font-weight: 400;
+  color: var(--color-theme-1);
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
+}
+header .header .score .counter-digits {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+header .header .score .counter-viewport {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+header .header .score .counter .hidden {
+  top: -100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 main {
@@ -601,23 +628,52 @@ section.home .choice #play .image-at-point.point-3 {
 section.home .result {
   position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   flex-wrap: nowrap;
   justify-content: space-between;
   width: 100vw;
   z-index: -1;
-  opacity: 0;
   transition: opacity 200ms cubic-bezier();
+}
+@media screen and (min-width: 1050px) {
+  section.home .result {
+    flex-direction: column;
+  }
 }
 section.home .result.actived {
   z-index: 99;
   opacity: 1;
 }
 section.home .result__title {
-  text-align: center;
   margin: 20px;
+  margin-top: 50px;
+  text-align: center;
+  opacity: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+}
+section.home .result__title span {
+  margin-bottom: 10px;
+}
+section.home .result__title span:last-child, section.home .result__title span:first-child {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0px 2px 3px #000;
+}
+@media screen and (min-width: 1050px) {
+  section.home .result__title {
+    flex-direction: row;
+    margin-top: auto;
+    margin-bottom: 50px;
+  }
+}
+section.home .result__title.actived {
+  opacity: 1;
 }
 section.home .result__button {
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -628,8 +684,8 @@ section.home .result__button .left,
 section.home .result__button .right,
 section.home .result__button .loser {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 @media screen and (min-width: 1050px) {
   section.home .result__button .left,
@@ -648,6 +704,15 @@ section.home .result__button .left .image-at-point,
 section.home .result__button .right .image-at-point {
   position: relative;
 }
+section.home .result__button .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+section.home .result__button .center.actived {
+  opacity: 1;
+}
 section.home .result__button .loser {
   position: absolute;
   opacity: 0;
@@ -655,6 +720,7 @@ section.home .result__button .loser {
 }
 section.home .result__button .loser .image-at-point {
   position: absolute;
+  right: 50px;
 }
 section.home .rules {
   margin: 50px 0;

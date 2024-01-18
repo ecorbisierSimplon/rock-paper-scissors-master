@@ -1,22 +1,10 @@
-import { quintOut } from 'svelte/easing';
+import { linear, quintOut } from 'svelte/easing';
 import { crossfade } from 'svelte/transition';
 
 export const duree: number = 600;
 
 export const [send, receive] = crossfade({
-    fallback(node, params) {
-        const style = getComputedStyle(node);
-        const transform = style.transform === 'none' ? '' : style.transform;
 
-        return {
-            duration: duree,
-            easing: quintOut,
-            css: (t) => `
-					transform: ${transform} scale(${t});
-					opacity: ${t}
-				`
-        };
-    }
 });
 
 

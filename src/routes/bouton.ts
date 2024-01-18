@@ -11,6 +11,7 @@ export interface objectButton {
     path: string;
     done: boolean;
     loser: boolean;
+    play2: boolean;
 }
 
 export class Boutons {
@@ -23,7 +24,7 @@ export class Boutons {
         const position: number = Boutons.elements.indexOf(name) + 1;
         const imagePath: string = Boutons.getImagePath(name);
 
-        return { id: "bouton_" + name, name: name, position: position, path: imagePath, done: false, loser: false };
+        return { id: "bouton_" + name, name: name, position: position, path: imagePath, done: false, loser: false, play2: false };
     }
 
     private static getImagePath(element: Elements): string {
