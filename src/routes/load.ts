@@ -1,7 +1,5 @@
 import { getCookie } from 'typescript-cookie';
 
-
-
 export type Elements = 'pierre' | 'ciseaux' | 'feuille' | 'lézard' | 'spock';
 export const elements: Elements[] = ['pierre', 'ciseaux', 'feuille'];
 

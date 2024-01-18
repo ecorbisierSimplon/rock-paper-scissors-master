@@ -5,9 +5,12 @@ import type { Elements } from './load';
 import { Load } from './load';
 
 export interface objectButton {
+    id: string;
     name: string;
     position: number;
     path: string;
+    done: boolean;
+    loser: boolean;
 }
 
 export class Boutons {
@@ -20,7 +23,7 @@ export class Boutons {
         const position: number = Boutons.elements.indexOf(name) + 1;
         const imagePath: string = Boutons.getImagePath(name);
 
-        return { name: name, position: position, path: imagePath };
+        return { id: "bouton_" + name, name: name, position: position, path: imagePath, done: false, loser: false };
     }
 
     private static getImagePath(element: Elements): string {

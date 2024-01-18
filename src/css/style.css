@@ -578,9 +578,6 @@ section.home .choice #play .image-at-point.point-1 {
     left: -40px;
   }
 }
-section.home .choice #play .image-at-point.point-1.position {
-  position: relative;
-}
 section.home .choice #play .image-at-point.point-2 {
   top: -25px;
   right: -25px;
@@ -601,13 +598,67 @@ section.home .choice #play .image-at-point.point-3 {
     left: calc(50% - 73px);
   }
 }
-section.home .choice #result .position {
+section.home .result {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100vw;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier();
+}
+section.home .result.actived {
+  z-index: 99;
+  opacity: 1;
+}
+section.home .result__title {
+  text-align: center;
+  margin: 20px;
+}
+section.home .result__button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
   position: relative;
-  top: auto;
-  bottom: auto;
-  left: auto;
-  right: auto;
+}
+section.home .result__button .left,
+section.home .result__button .right,
+section.home .result__button .loser {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+@media screen and (min-width: 1050px) {
+  section.home .result__button .left,
+  section.home .result__button .right,
+  section.home .result__button .loser {
+    width: 80px;
+    height: 80px;
+  }
+}
+section.home .result__button .left .image-at-point,
+section.home .result__button .right .image-at-point,
+section.home .result__button .loser .image-at-point {
+  cursor: default;
+}
+section.home .result__button .left .image-at-point,
+section.home .result__button .right .image-at-point {
+  position: relative;
+}
+section.home .result__button .loser {
+  position: absolute;
+  opacity: 0;
+  right: 50px;
+}
+section.home .result__button .loser .image-at-point {
+  position: absolute;
 }
 section.home .rules {
   margin: 50px 0;
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
 }/*# sourceMappingURL=style.css.map */
