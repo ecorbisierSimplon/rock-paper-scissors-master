@@ -26,7 +26,8 @@ elements.subscribe((value: Elements[]) => {
 });
 
 export let idName = writable<string>('');
-export let textResult = writable<string>('Résultat en attente !!!');
+export const textTitleResult: string = '<span>Résultat en attente !!!</span>'
+export let textResult = writable<string>(textTitleResult);
 
 
 export let resultFinal = writable<ResultPlayer>({ player1: 'ciseaux', player2: 'ciseaux', result: 999, textResult: "" });

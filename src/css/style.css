@@ -465,8 +465,8 @@ header .header .score > div > div {
   justify-content: center;
   max-height: 64px;
 }
-header .header .score > div > div:first-child {
-  border-right: 1px solid #000;
+header .header .score > div > div:first-child .counter-viewport {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 header .header .score .counter {
   display: flex;
@@ -476,7 +476,6 @@ header .header .score .counter {
 }
 header .header .score .counter strong {
   position: absolute;
-  top: -10px;
   left: 10px;
   display: flex;
   /* width: 100%; */
@@ -518,6 +517,7 @@ section.home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 section.home .image-at-point {
   position: relative;
@@ -634,6 +634,7 @@ section.home .result {
   width: 100vw;
   z-index: -1;
   transition: opacity 200ms cubic-bezier();
+  max-width: 800px;
 }
 @media screen and (min-width: 1050px) {
   section.home .result {
@@ -662,11 +663,17 @@ section.home .result__title span:last-child, section.home .result__title span:fi
   font-weight: bold;
   text-shadow: 0px 2px 3px #000;
 }
+section.home .result__title span:nth-child(2) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 @media screen and (min-width: 1050px) {
   section.home .result__title {
     flex-direction: row;
     margin-top: auto;
     margin-bottom: 50px;
+    font-size: 22px;
+    justify-content: center;
   }
 }
 section.home .result__title.actived {
@@ -704,6 +711,10 @@ section.home .result__button .left .image-at-point,
 section.home .result__button .right .image-at-point {
   position: relative;
 }
+section.home .result__button .left .point-99,
+section.home .result__button .right .point-99 {
+  position: absolute;
+}
 section.home .result__button .center {
   display: flex;
   flex-direction: column;
@@ -712,6 +723,14 @@ section.home .result__button .center {
 }
 section.home .result__button .center.actived {
   opacity: 1;
+}
+section.home .result__button .center button {
+  cursor: pointer;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 0 #2f2d2d, 2px 2px 5px #000000;
+}
+section.home .result__button .center button:hover {
+  box-shadow: inset 2px 2px 0 #2f2d2d, inset 2px 2px 5px #000000;
 }
 section.home .result__button .loser {
   position: absolute;

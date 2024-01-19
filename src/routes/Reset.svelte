@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { validation, finish, boutons, resultFinal, textResult } from './store';
+	import { validation, finish, boutons, resultFinal, textResult, textTitleResult } from './store';
 
 	function reset() {
 		finish.set(false);
-		textResult.set('Résultat en attente !!!');
+		textResult.set(textTitleResult);
 		boutons.set(
 			$boutons.map((bouton) => ({
 				...bouton,

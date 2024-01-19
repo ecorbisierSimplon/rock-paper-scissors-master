@@ -94,22 +94,15 @@ header {
           flex-wrap: nowrap;
           justify-content: center;
           max-height: 64px;
+
           &:first-child {
-            border-right: 1px solid #000;
+            .counter-viewport {
+              border-right: 1px solid rgba(0, 0, 0, 0.1);
+            }
           }
         }
       }
-      //     input {
-      //       display: none;
-      //     }
-      //     span {
-      //       font-size: 1.7em;
-      //       @include gd-screen-min {
-      //         font-size: 2.8em;
-      //       }
-      //     }
-      //   }
-      //}
+
       .counter {
         display: flex;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -117,7 +110,7 @@ header {
         margin: 5px 0;
         strong {
           position: absolute;
-          top: -10px;
+          // top: -10px;
           left: 10px;
           display: flex;
           /* width: 100%; */

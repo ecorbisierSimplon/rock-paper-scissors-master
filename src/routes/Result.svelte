@@ -39,6 +39,13 @@
 		<Reset />
 	</div>
 	<div class="right">
+		{#if $finish}
+			<div class="image-at-point point-99">
+				<div>
+					<!-- <img src={bouton.path} alt="SciPaRo {bouton.name}" /> -->
+				</div>
+			</div>
+		{/if}
 		{#each $boutons.filter((t) => t.play2) as bouton (bouton.id)}
 			<div
 				in:receive={{ key: bouton.id }}
