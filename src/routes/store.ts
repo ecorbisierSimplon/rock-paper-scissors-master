@@ -41,8 +41,14 @@ export function validation(name: string) {
     idName.set(lineButton.name as string);
 
     const element: Elements[] = getWritable(elements) as Elements[];
-    const player2: Elements = element[Math.floor(Math.random() * element.length)];
-
+    const alea: number = Math.random();
+    const aleaLenght: number = alea * element.length;
+    const aleaArround: number = Math.round(aleaLenght);
+    const player2: Elements = element[aleaArround];
+    console.log(alea);
+    console.log(aleaLenght + " x " + element.length);
+    console.log(aleaArround);
+    console.log(player2);
     ;
     resultFinal.set(ResultatPlayer.calcul(getWritable(idName) as Elements, player2));
     const text: ResultPlayer = getWritable(resultFinal) as ResultPlayer;
