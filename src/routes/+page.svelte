@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Choice from './Choice.svelte';
 	import Result from './Result.svelte';
+	import { finish } from './store';
 </script>
 
 <svelte:head>
@@ -12,7 +13,7 @@
 	<div class="choice">
 		<Choice />
 	</div>
-	<div class="result">
+	<div class="result" class:actived={$finish}>
 		<Result />
 	</div>
 	<div class="rules">

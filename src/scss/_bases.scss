@@ -56,12 +56,12 @@ header {
       flex-wrap: nowrap;
       align-items: center;
       justify-content: flex-start;
-      padding: 15px;
+      padding: 11px;
       background-color: #fff;
-      color: hsl(240, 9%, 35%);
+      color: #515161;
       border-radius: 15px;
-      width: 63px;
-      height: 63px;
+      width: 80px;
+      height: 80px;
       @include gd-screen-min {
         width: 100px;
         height: 100px;
@@ -73,37 +73,69 @@ header {
           font-size: 0.8em;
         }
       }
+
       & > div {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        align-items: center;
         justify-content: center;
-        div {
+
+        label {
+          font-size: 0.7em;
+          text-align: center;
+          @include gd-screen-min {
+            font-size: 0.8em;
+          }
+        }
+        & > div {
           display: flex;
           flex-direction: column;
           flex-wrap: nowrap;
-          align-items: center;
           justify-content: center;
-          padding: 5px;
+          max-height: 64px;
 
           &:first-child {
-            border-right: 1px solid #000;
-          }
-          label {
-            font-size: 0.7em;
-            @include gd-screen-min {
-              font-size: 0.8em;
+            .counter-viewport {
+              border-right: 1px solid rgba(0, 0, 0, 0.1);
             }
           }
-          input {
-            display: none;
-          }
-          span {
-            font-size: 1.7em;
-            @include gd-screen-min {
-              font-size: 2.8em;
-            }
-          }
+        }
+      }
+
+      .counter {
+        display: flex;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 5px 0;
+        strong {
+          position: absolute;
+          // top: -10px;
+          left: 10px;
+          display: flex;
+          /* width: 100%; */
+          /* height: 100%; */
+          font-weight: 400;
+          color: var(--color-theme-1);
+          font-size: 50px;
+          align-items: center;
+          justify-content: center;
+        }
+        &-digits {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+        &-viewport {
+          width: 50px;
+          height: 50px;
+          overflow: hidden;
+          text-align: center;
+          position: relative;
+        }
+        .hidden {
+          top: -100%;
+          user-select: none;
         }
       }
     }

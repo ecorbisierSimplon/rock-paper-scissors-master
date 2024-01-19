@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { getCookie, setCookie } from 'typescript-cookie';
 	import '../css/style.min.css';
+	// import '../scss/style.scss';
 	import Header from '$lib/component/Header.svelte';
 	export let hostname: string = '';
 
